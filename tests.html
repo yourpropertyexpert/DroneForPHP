@@ -1,120 +1,106 @@
 <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./css/default.css">
+</head>
+
+<body>
+    <div id="header"></div>
+    <div class="container">
+        <h2>The tests</h2>
+        <div class='card-columns'>
+            <div class='card bg-light'>
+                <div class='card-header'><h3>PSR2 checks</h3></div>
+                <div class='card-body'>
+                    <p>
+                        <a target="_blank" href="https://www.php-fig.org/psr/psr-2/">PSR2</a> is a coding style guide maintained by the PHP Framework Interop(ability) Group
+                    </p>
+                </div>
+                <div class='card-footer'><p>We use a tool called PHPCS to help you check for PSR2 compliance.</p></div>
+            </div>
+            <div class='card bg-light'>
+                <div class='card-header'><h3>Embedded configuration (Magic Numbers)</h3></div>
+                <div class='card-body'>
+                    <p>
+                        <a target="_blank" href="https://medium.com/@yourpropertyexpert/what-are-php-magic-numbers-and-how-to-find-and-remove-them-d47a616261cc">Magic Numbers</a> are coding issue in which configuration information is littered throughout the code base, rather than being clearly defined as config.
+                    </p>
+                </div>
+                <div class='card-footer'><p>We use a tool called PHPMND to help you check for PSR2 compliance.</p></div>
+            </div>
+            <div class='card bg-light'>
+                <div class='card-header'><h3>Clean code</h3></div>
+                <div class='card-body'>
+                    <p>Clean Code checks look for four things:</p>
+                    <ul>
+                        <li>Static access</li>
+                        <li>ELSE clauses in classes</li>
+                        <li>Duplicate array keys</li>
+                        <li>Boolean arguments to change the semantics of a function</li>
+                    </ul>
+                    <p>Whether all of these are appropriate for your code is a matter of some contention, particularly the ELSE rule.</p>
+                </div>
+                <div class='card-footer'><p>We use a tool called PHPMD to help you check for Clean Code.</p></div>
+            </div>
+            <div class='card bg-light'>
+                <div class='card-header'><h3>Code size (complexity)</h3></div>
+                <div class='card-body'>
+                    <p>This checks against a number of metrics including:</p>
+                    <ul>
+                        <li>Number of methods per class</li>
+                        <li>Number of parameters per class</li>
+                        <li>NPath complexity of each method</li>
+                        <li>Cyclomatic complexity of each method</li>
+                    </ul>
+
+                </div>
+                <div class='card-footer'><p>We use a tool called PHPMD to help you check for complexity / size.</p></div>
+            </div>
+            <div class='card bg-light'>
+                <div class='card-header'><h3>Unused code</h3></div>
+                <div class='card-body'>
+                    <p>We check for unused code in the following:</p>
+                    <ul>
+                        <li>Private fields</li>
+                        <li>Local variables</li>
+                        <li>Private methods</li>
+                        <li>Parameters to methods</li>
+                    </ul>
+                    <p>This sometimes gives false positives, such as in situations where function names are passed, quoted, as parameters to other functions. (uasort is notorious for this.)</p>
+                </div>
+                <div class='card-footer'><p>We use a tool called PHPMD to help you check for unused code.</p></div>
+            </div>
+            <div class='card bg-light'>
+                <div class='card-header'><h3>SOLID design rules</h3></div>
+                <div class='card-body'>
+                    <p>The SOLID checks test for a large number of things, from goto statements, to the use of print_r</p>
+                    <p>In practice, we find the coding error it regularly catches is the use of assignments in if clauses. These are possible in PHP, but in our experience tend to happen when someone has typed = (assignment) instead of == (equality).</p>
+                </div>
+                <div class='card-footer'><p>We use a tool called PHPMD to help you check for SOLID breaches.</p></div>
+            </div>
+            <div class='card bg-light'>
+                <div class='card-header'><h3>Code duplication (Copy/Paste detection)</h3></div>
+                <div class='card-body'>
+                    <p>Code duplication is generally a sing of copy/paste, and tends to break the DRY principle.</p>
+                    <p>By default, code duplication will be flagged if the number of duplicated lines is over 5 / the number of duplicated tokens is over 70.</p>
+                </div>
+                <div class='card-footer'><p>We use a tool called PHCPD to help you check for code duplication.</p></div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="page-footer">
+        <hr/>
+        <div id="footer" class="container"/>
+    </footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
-    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script></head>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
 
-<body>
+    <script src="./scripts/nav/footer.js"></script>
+    <script src="./scripts/nav/header.js"></script>
 
-    <div id="header"></div>
-
-<div class="container">
-    <h2>The tests</h2>
-
-    <div class='card-columns'>
-
-        <div class='card bg-light'>
-            <div class='card-header'><h3>PSR2 checks</h3></div>
-            <div class='card-body'>
-                <p>
-                    <a target="_blank" href="https://www.php-fig.org/psr/psr-2/">PSR2</a> is a coding style guide maintained by the PHP Framework Interop(ability) Group
-                </p>
-            </div>
-            <div class='card-footer'><p>We use a tool called PHPCS to help you check for PSR2 compliance.</p></div>
-        </div>
-
-        <div class='card bg-light'>
-            <div class='card-header'><h3>Embedded configuration (Magic Numbers)</h3></div>
-            <div class='card-body'>
-                <p>
-                    <a target="_blank" href="https://medium.com/@yourpropertyexpert/what-are-php-magic-numbers-and-how-to-find-and-remove-them-d47a616261cc">Magic Numbers</a> are coding issue in which configuration information is littered throughout the code base, rather than being clearly defined as config.
-                </p>
-            </div>
-            <div class='card-footer'><p>We use a tool called PHPMND to help you check for PSR2 compliance.</p></div>
-        </div>
-
-        <div class='card bg-light'>
-            <div class='card-header'><h3>Clean code</h3></div>
-            <div class='card-body'>
-                <p>Clean Code checks look for four things:</p>
-                <ul>
-                    <li>Static access</li>
-                    <li>ELSE clauses in classes</li>
-                    <li>Duplicate array keys</li>
-                    <li>Boolean arguments to change the semantics of a function</li>
-                </ul>
-                <p>Whether all of these are appropriate for your code is a matter of some contention, particularly the ELSE rule.</p>
-            </div>
-            <div class='card-footer'><p>We use a tool called PHPMD to help you check for Clean Code.</p></div>
-        </div>
-
-        <div class='card bg-light'>
-            <div class='card-header'><h3>Code size (complexity)</h3></div>
-            <div class='card-body'>
-                <p>This checks against a number of metrics including:</p>
-                <ul>
-                    <li>Number of methods per class</li>
-                    <li>Number of parameters per class</li>
-                    <li>NPath complexity of each method</li>
-                    <li>Cyclomatic complexity of each method</li>
-                </ul>
-
-            </div>
-            <div class='card-footer'><p>We use a tool called PHPMD to help you check for complexity / size.</p></div>
-        </div>
-
-        <div class='card bg-light'>
-            <div class='card-header'><h3>Unused code</h3></div>
-            <div class='card-body'>
-                <p>We check for unused code in the following:</p>
-                <ul>
-                    <li>Private fields</li>
-                    <li>Local variables</li>
-                    <li>Private methods</li>
-                    <li>Parameters to methods</li>
-                </ul>
-                <p>This sometimes gives false positives, such as in situations where function names are passed, quoted, as parameters to other functions. (uasort is notorious for this.)</p>
-            </div>
-            <div class='card-footer'><p>We use a tool called PHPMD to help you check for unused code.</p></div>
-        </div>
-
-        <div class='card bg-light'>
-            <div class='card-header'><h3>SOLID design rules</h3></div>
-            <div class='card-body'>
-                <p>The SOLID checks test for a large number of things, from goto statements, to the use of print_r</p>
-                <p>In practice, we find the coding error it regularly catches is the use of assignments in if clauses. These are possible in PHP, but in our experience tend to happen when someone has typed = (assignment) instead of == (equality).</p>
-            </div>
-            <div class='card-footer'><p>We use a tool called PHPMD to help you check for SOLID breaches.</p></div>
-        </div>
-
-        <div class='card bg-light'>
-            <div class='card-header'><h3>Code duplication (Copy/Paste detection)</h3></div>
-            <div class='card-body'>
-                <p>Code duplication is generally a sing of copy/paste, and tends to break the DRY principle.</p>
-                <p>By default, code duplication will be flagged if the number of duplicated lines is over 5 / the number of duplicated tokens is over 70.</p>
-            </div>
-            <div class='card-footer'><p>We use a tool called PHCPD to help you check for code duplication.</p></div>
-        </div>
-
-
-    </div>
-
-
-
-</div>
-
-<footer class="page-footer">
-    <hr/>
-    <div id="footer" class="container"/>
-</footer>
-
-
-<script src="./scripts/nav/footer.js"></script>
-<script src="./scripts/nav/header.js"></script>
-
-<script>ShowFooters();</script>
-<script>ShowHeader();</script>
-
+    <script>ShowFooters();</script>
+    <script>ShowHeader();</script>
 </body>

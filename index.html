@@ -1,86 +1,88 @@
 <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/default.css">
+</head>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<body>
+    <header>
+        <div id="header"></div>
+    </header>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-3">
+          <h2>What's this?</h2>
+          <p>DroneForPHP is a tool to generate configuration files for <a href="https://drone.io/">drone.io</a>, a continuous integration tool for PHP that uses Docker to run third-party software for code testing. It requires a configuration file.</p>
+          <p>This site generate a drone configuration file (known as a drone.yml file) intended for use with PHP projects.</p>
+          <p><a href="about.html">Find out more</a></p>
+        </div>
+        <div class="col-sm-3">
+          <h2>Select tests</h2>
+          <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input" id="PSRBox" checked onclick="BuildDroneFile()"/>
+            <label class="custom-control-label" for="PSRBox"> PSR2</label>
+          </div>
+          <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input" id="MNDBox" onclick="BuildDroneFile()"/>
+            <label class="custom-control-label" for="MNDBox"> Embedded Configuration</label>
+          </div>
+          <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input" id="CleanBox" onclick="BuildDroneFile()"/>
+            <label class="custom-control-label" for="CleanBox"> Clean Code</label>
+          </div>
+          <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input" id="SizeBox" onclick="BuildDroneFile()"/>
+            <label class="custom-control-label" for="SizeBox"> Complexity / Size</label>
+          </div>
+          <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input" id="UnusedBox" onclick="BuildDroneFile()"/>
+            <label class="custom-control-label" for="UnusedBox"> Unused Code</label>
+          </div>
+          <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input" id="SOLIDBox" onclick="BuildDroneFile()"/>
+            <label class="custom-control-label" for="SOLIDBox"> SOLID Design Rules</label>
+          </div>
+          <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input" id="CPDBox" onclick="BuildDroneFile()"/>
+            <label class="custom-control-label" for="CPDBox"> Code duplication</label>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <h2>Generated drone.yml</h2>
+            <div style="overflow-x: scroll; white-space: nowrap">
+                <pre id="output"><div id="dronetop"></div><div id="psr"></div><div id="mnd"></div><div id="clean"></div><div id="size"></div><div id="unused"></div><div id="solid"></div><div id="cpd"></div></pre>
+            </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="page-footer">
+        <hr/>
+        <div id="footer" class="container"></div>
+    </footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
     <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
-</head>
 
-<body>
-<div id="header"></div>
+    <script src="./scripts/nav/footer.js"></script>
+    <script src="./scripts/nav/header.js"></script>
 
-<div class="container">
-  <div class="row">
-    <div class="col-sm-3">
-      <h2>What's this?</h2>
-      <p>DroneForPHP is a tool to generate configuration files for <a href="https://drone.io/">drone.io</a>, a continuous integration tool for PHP that uses Docker to run third-party software for code testing. It requires a configuration file.</p>
-      <p>This site generate a drone configuration file (known as a drone.yml file) intended for use with PHP projects.</p>
-      <p><a href="about.html">Find out more</a></p>
-    </div>
-    <div class="col-sm-3">
-      <h2>Select tests</h2>
-      <div class="custom-control custom-switch">
-        <input type="checkbox" class="custom-control-input" id="PSRBox" checked onclick="BuildDroneFile()"/>
-        <label class="custom-control-label" for="PSRBox"> PSR2</label>
-      </div>
-      <div class="custom-control custom-switch">
-        <input type="checkbox" class="custom-control-input" id="MNDBox" onclick="BuildDroneFile()"/>
-        <label class="custom-control-label" for="MNDBox"> Embedded Configuration</label>
-      </div>
-      <div class="custom-control custom-switch">
-        <input type="checkbox" class="custom-control-input" id="CleanBox" onclick="BuildDroneFile()"/>
-        <label class="custom-control-label" for="CleanBox"> Clean Code</label>
-      </div>
-      <div class="custom-control custom-switch">
-        <input type="checkbox" class="custom-control-input" id="SizeBox" onclick="BuildDroneFile()"/>
-        <label class="custom-control-label" for="SizeBox"> Complexity / Size</label>
-      </div>
-      <div class="custom-control custom-switch">
-        <input type="checkbox" class="custom-control-input" id="UnusedBox" onclick="BuildDroneFile()"/>
-        <label class="custom-control-label" for="UnusedBox"> Unused Code</label>
-      </div>
-      <div class="custom-control custom-switch">
-        <input type="checkbox" class="custom-control-input" id="SOLIDBox" onclick="BuildDroneFile()"/>
-        <label class="custom-control-label" for="SOLIDBox"> SOLID Design Rules</label>
-      </div>
-      <div class="custom-control custom-switch">
-        <input type="checkbox" class="custom-control-input" id="CPDBox" onclick="BuildDroneFile()"/>
-        <label class="custom-control-label" for="CPDBox"> Code duplication</label>
-      </div>
-    </div>
-    <div class="col-sm-6">
-      <h2>Generated drone.yml</h2>
-        <div style="overflow-x: scroll; white-space: nowrap">
-            <pre id="output"><div id="dronetop"></div><div id="psr"></div><div id="mnd"></div><div id="clean"></div><div id="size"></div><div id="unused"></div><div id="solid"></div><div id="cpd"></div></pre>
-        </div>
-    </div>
-  </div>
-</div>
+    <script>ShowFooters();</script>
+    <script>ShowHeader();</script>
 
+    <script src="./scripts/app/dronetop.js"></script>
+    <script src="./scripts/app/psr.js"></script>
+    <script src="./scripts/app/mnd.js"></script>
+    <script src="./scripts/app/clean.js"></script>
+    <script src="./scripts/app/size.js"></script>
+    <script src="./scripts/app/unused.js"></script>
+    <script src="./scripts/app/solid.js"></script>
+    <script src="./scripts/app/cpd.js"></script>
+    <script src="./scripts/app/builddronefile.js"></script>
 
-<footer class="page-footer">
-    <hr/>
-    <div id="footer" class="container"></div>
-</footer>
-
-<script src="./scripts/nav/footer.js"></script>
-<script src="./scripts/nav/header.js"></script>
-
-<script>ShowFooters();</script>
-<script>ShowHeader();</script>
-
-<script src="./scripts/app/dronetop.js"></script>
-<script src="./scripts/app/psr.js"></script>
-<script src="./scripts/app/mnd.js"></script>
-<script src="./scripts/app/clean.js"></script>
-<script src="./scripts/app/size.js"></script>
-<script src="./scripts/app/unused.js"></script>
-<script src="./scripts/app/solid.js"></script>
-<script src="./scripts/app/cpd.js"></script>
-<script src="./scripts/app/builddronefile.js"></script>
-
-<script>BuildDroneFile();</script>
+    <script>BuildDroneFile();</script>
 
 </body>

@@ -6,7 +6,7 @@ function ShowHeader(){
     const subtitleText = "A simple tool to generate drone.io files for PHP projects";
 
     const navBarText = "BIBBLE";
-    const HomeLink = React.createElement ("a", {className: "nav-link", href: 'index.html'}, "Generate your config");
+    const HomeLink = React.createElement ("a", {className: "nav-link", href: 'index.html'}, "Generate your drone config");
     const AboutLink = React.createElement ("a", {className: "nav-link", href: 'about.html'}, "About us");
     const TestsLink = React.createElement ("a", {className: "nav-link", href: 'tests.html'}, "The tests");
 
@@ -15,14 +15,14 @@ function ShowHeader(){
     const AboutItem = React.createElement("li", {className: "nav-item"}, AboutLink);
     const TestsItem = React.createElement("li", {className: "nav-item"}, TestsLink);
 
-    const navMenu = React.createElement("ul", {className: "navbar-nav"}, HomeItem, AboutItem, TestsItem);
-    const navBar = React.createElement("nav", {className: "navbar navbar-expand-sm navbar-light"}, navMenu);
+    const navMenu = React.createElement("ul", {className: "navbar-nav bg-primary fixed-top"}, HomeItem, AboutItem, TestsItem);
+    const navBar = React.createElement("nav", {className: "navbar navbar-expand-sm navbar-dark"}, navMenu);
 
     const headerContainer = document.querySelector('#header');
     const header = React.createElement(`div`, {className:"bg-light"},
-      React.createElement("h1", "", titleText),
-      React.createElement("p", "", subtitleText),
       navBar
+      // React.createElement("h1", "", titleText),
+      // React.createElement("p", "", subtitleText)
     );
 
     ReactDOM.render(header, headerContainer);
