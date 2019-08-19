@@ -4,9 +4,9 @@
 function ShowCPDText(){
 
     const cpdText = `- name: Copy paste detection
-      image: rvannauker/phpcpd
-      commands:
-      - phpcpd /drone/src`;
+  image: rvannauker/phpcpd
+  commands:
+  - phpcpd /drone/src`;
     const cpdContainer = document.querySelector('#cpd');
 
     if (document.getElementById("CPDBox").checked){
