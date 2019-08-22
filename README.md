@@ -7,3 +7,4 @@ To add a new page
 To modify the "app" scripts
 - modify the subscript you want
 - run deploy to build them all to an app.js
+- push to github
