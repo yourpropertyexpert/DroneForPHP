@@ -11,8 +11,6 @@ function ShowMNDText(){
 
     if (document.getElementById("MNDBox").checked){
         ReactDOM.render(mNDText, mNDContainer);
-        console.log("MND: Checking pretty much everywhere they could be found.");
-        console.log("MND: You need the non-zero-exit directive to ensure that the drone GUI flags up an error.");
     } else {
         ReactDOM.render("", mNDContainer);
     }

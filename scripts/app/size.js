@@ -16,7 +16,6 @@ function ShowSizeText(){
 
     if (document.getElementById("SizeBox").checked) {
         ReactDOM.render(sizeText, sizeContainer);
-        console.log("Codesize: Grep -v stuff on code size needs fixing");
     } else {
         ReactDOM.render("", sizeContainer);
     }
