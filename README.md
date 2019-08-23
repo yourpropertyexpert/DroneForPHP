@@ -12,6 +12,7 @@ This repo contains three different things:
 
 To add a new page to a website based on the "everything else"
 - copy the template.html
+- once you're happy with it, add the appropriate lines to /scripts/nav/header.js
 
 
 ## The app
