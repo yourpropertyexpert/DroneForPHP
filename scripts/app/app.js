@@ -30,7 +30,6 @@ function ShowCleanText(){
 
     if (document.getElementById("CleanBox").checked) {
         ReactDOM.render(cleanText, CleanContainer);
-        console.log("Clean Code: uses the default PHPMD rules. The grep -v stuff needs to be sorted out since it stuffs the return codes.");
     } else {
         ReactDOM.render("", CleanContainer);
     }
@@ -49,7 +48,6 @@ function ShowCPDText(){
 
     if (document.getElementById("CPDBox").checked){
         ReactDOM.render(cpdText, cpdContainer);
-        console.log("CPD: Very straightforward docker image with sensible defaults.");
     } else {
         ReactDOM.render("", cpdContainer);
     }
@@ -63,6 +61,9 @@ name: DroneForPHP
 steps:`;
     const droneNoText = "No options selected. No drone file needed.";
     const droneTopContainer = document.querySelector('#dronetop');
+    const droneButton = React.createElement("button", {className:"btn btn-secondary btn-sm", 'data-clipboard-target':"#output"}, "Copy YAML to clipboard");
+    const droneButtonContainer = document.querySelector('#copybutton');
+
     if (
         document.getElementById("PSRBox").checked ||
         document.getElementById("MNDBox").checked ||
@@ -73,8 +74,10 @@ steps:`;
         document.getElementById("CPDBox").checked
     ) {
     ReactDOM.render(droneTopText, droneTopContainer);
+    ReactDOM.render(droneButton, droneButtonContainer);
     } else {
     ReactDOM.render(droneNoText, droneTopContainer);
+    ReactDOM.render("", droneButtonContainer);
     }
 }
 'use strict';
@@ -90,8 +93,6 @@ function ShowMNDText(){
 
     if (document.getElementById("MNDBox").checked){
         ReactDOM.render(mNDText, mNDContainer);
-        console.log("MND: Checking pretty much everywhere they could be found.");
-        console.log("MND: You need the non-zero-exit directive to ensure that the drone GUI flags up an error.");
     } else {
         ReactDOM.render("", mNDContainer);
     }
@@ -109,7 +110,6 @@ function ShowPSRText(){
 
     if (document.getElementById("PSRBox").checked){
         ReactDOM.render(psrText, psrContainer);
-        console.log("PSR2: ...The PHPCS template for PSR2 only does the additional checks for PSR2 over PSR1, hence we need the PSR1 template as well.");
     } else {
         ReactDOM.render("", psrContainer);
     }
@@ -132,7 +132,6 @@ function ShowSizeText(){
 
     if (document.getElementById("SizeBox").checked) {
         ReactDOM.render(sizeText, sizeContainer);
-        console.log("Codesize: Grep -v stuff on code size needs fixing");
     } else {
         ReactDOM.render("", sizeContainer);
     }
@@ -155,7 +154,6 @@ function ShowSolidText(){
 
     if (document.getElementById("SOLIDBox").checked){
         ReactDOM.render(solidText, solidContainer);
-        console.log("SOLID: Need to fix the grep.");
     } else {
         ReactDOM.render("", solidContainer);
     }
@@ -177,7 +175,6 @@ function ShowUnusedText(){
     const unusedContainer = document.querySelector('#unused');
     if (document.getElementById("UnusedBox").checked) {
         ReactDOM.render(unusedText, unusedContainer);
-        console.log("Unused: Need to fix the grep.");
     } else {
         ReactDOM.render("", unusedContainer);
     }

@@ -15,7 +15,6 @@ function ShowUnusedText(){
     const unusedContainer = document.querySelector('#unused');
     if (document.getElementById("UnusedBox").checked) {
         ReactDOM.render(unusedText, unusedContainer);
-        console.log("Unused: Need to fix the grep.");
     } else {
         ReactDOM.render("", unusedContainer);
     }

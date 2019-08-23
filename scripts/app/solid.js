@@ -16,7 +16,6 @@ function ShowSolidText(){
 
     if (document.getElementById("SOLIDBox").checked){
         ReactDOM.render(solidText, solidContainer);
-        console.log("SOLID: Need to fix the grep.");
     } else {
         ReactDOM.render("", solidContainer);
     }
