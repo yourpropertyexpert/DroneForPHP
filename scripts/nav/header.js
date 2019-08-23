@@ -9,13 +9,15 @@ function ShowHeader(){
     const HomeLink = React.createElement ("a", {className: "nav-link", href: 'index.html'}, "Generate your drone config");
     const AboutLink = React.createElement ("a", {className: "nav-link", href: 'about.html'}, "About us");
     const TestsLink = React.createElement ("a", {className: "nav-link", href: 'tests.html'}, "The tests");
+    const ContactLink = React.createElement ("a", {className: "nav-link", href: 'contact.html'}, "Contact Mark");
 
 
     const HomeItem = React.createElement("li", {className: "nav-item"}, HomeLink);
     const AboutItem = React.createElement("li", {className: "nav-item"}, AboutLink);
     const TestsItem = React.createElement("li", {className: "nav-item"}, TestsLink);
+    const ContactItem = React.createElement("li", {className: "nav-item"}, ContactLink);
 
-    const navMenu = React.createElement("ul", {className: "navbar-nav bg-primary fixed-top"}, HomeItem, AboutItem, TestsItem);
+    const navMenu = React.createElement("ul", {className: "navbar-nav bg-primary fixed-top"}, HomeItem, AboutItem, TestsItem, ContactItem);
     const navBar = React.createElement("nav", {className: "navbar navbar-expand-sm navbar-dark"}, navMenu);
 
     const headerContainer = document.querySelector('#header');
