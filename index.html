@@ -57,6 +57,8 @@
             <div style="overflow-x: scroll; white-space: nowrap">
                 <pre id="output"><div id="dronetop"></div><div id="psr"></div><div id="mnd"></div><div id="clean"></div><div id="size"></div><div id="unused"></div><div id="solid"></div><div id="cpd"></div></pre>
             </div>
+            <div id="copybutton">
+            </div>
         </div>
       </div>
     </div>
@@ -75,7 +77,9 @@
     <script>ShowFooters();</script>
     <script>ShowHeader();</script>
 
+    <script src="https://unpkg.com/clipboard@2/dist/clipboard.min.js"></script>
     <script src="./scripts/app/app.js"></script>
+    <script>new ClipboardJS('.btn');</script>
 
     <script>BuildDroneFile();</script>
 
