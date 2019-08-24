@@ -13,7 +13,7 @@ function ShowFooters(){
     const footer4 = React.createElement("p", "", PrivacyText);
 
     const footerContainer = document.querySelector('#footer');
-    const footer = React.createElement(`div`, {className:"Row"},
+    const footer = React.createElement(`div`, {className:"row"},
       React.createElement("div", {className:"col-sm-3"}, footer1),
       React.createElement("div", {className:"col-sm-3"}, footer2),
       React.createElement("div", {className:"col-sm-3"}, footer3),
